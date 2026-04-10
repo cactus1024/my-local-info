@@ -15,9 +15,12 @@ export default function BlogList() {
               성남시 생활정보
             </span>
           </Link>
-          <div className="flex gap-4">
+          <div className="flex gap-3">
             <Link href="/" className="text-sm font-semibold text-slate-500 hover:text-slate-800 transition-colors bg-white/80 px-4 py-2 rounded-full border border-slate-100 shadow-sm">
               홈으로
+            </Link>
+            <Link href="/about" className="text-sm font-semibold text-slate-500 hover:text-slate-800 transition-colors bg-white/80 px-4 py-2 rounded-full border border-slate-100 shadow-sm">
+              소개
             </Link>
           </div>
         </div>

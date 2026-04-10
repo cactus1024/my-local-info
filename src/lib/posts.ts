@@ -11,6 +11,7 @@ export interface PostMeta {
   summary: string;
   category: string;
   tags?: string[];
+  link?: string;
 }
 
 export interface Post extends PostMeta {
@@ -39,7 +40,7 @@ export function getAllPosts(): PostMeta[] {
       const fileContents = fs.readFileSync(fullPath, "utf8");
 
       const matterResult = matter(fileContents);
-      const { title, date, summary, category, tags } = matterResult.data;
+      const { title, date, summary, category, tags, link } = matterResult.data;
 
       return {
         slug,
@@ -48,6 +49,7 @@ export function getAllPosts(): PostMeta[] {
         summary: summary || "",
         category: category || "Uncategorized",
         tags: tags || [],
+        link: link || "",
       };
     });
 
@@ -61,7 +63,7 @@ export function getPostBySlug(slug: string): Post | null {
   const fileContents = fs.readFileSync(fullPath, "utf8");
   const matterResult = matter(fileContents);
   
-  const { title, date, summary, category, tags } = matterResult.data;
+  const { title, date, summary, category, tags, link } = matterResult.data;
 
   return {
     slug,
@@ -70,6 +72,7 @@ export function getPostBySlug(slug: string): Post | null {
     summary: summary || "",
     category: category || "Uncategorized",
     tags: tags || [],
+    link: link || "",
     content: matterResult.content,
   };
 }
