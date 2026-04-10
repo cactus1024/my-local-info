@@ -79,41 +79,81 @@ export default function Home() {
                     })
                   }}
                 />
-                <Link
-                  href="/blog"
-                  className="group block bg-white/70 backdrop-blur-md rounded-[24px] p-6 shadow-[0_8px_30px_rgb(0,0,0,0.04)] border border-white/60 hover:shadow-[0_20px_40px_rgb(0,0,0,0.08)] hover:-translate-y-1 transition-all duration-300 flex flex-col h-full cursor-pointer"
-                >
-                  <div className="flex justify-between items-start mb-4">
-                    <span className="text-xs font-extrabold text-orange-500 bg-orange-50 px-3 py-1.5 rounded-lg border border-orange-100">
-                      {item.category}
-                    </span>
-                    <span className="text-sm font-semibold text-slate-400">
-                      {item.startDate}
-                    </span>
-                  </div>
+                {item.link && item.link !== '#' ? (
+                  <a
+                    href={item.link}
+                    target="_blank"
+                    rel="noopener noreferrer"
+                    className="group block bg-white/70 backdrop-blur-md rounded-[24px] p-6 shadow-[0_8px_30px_rgb(0,0,0,0.04)] border border-white/60 hover:shadow-[0_20px_40px_rgb(0,0,0,0.08)] hover:-translate-y-1 transition-all duration-300 flex flex-col h-full cursor-pointer"
+                  >
+                    <div className="flex justify-between items-start mb-4">
+                      <span className="text-xs font-extrabold text-orange-500 bg-orange-50 px-3 py-1.5 rounded-lg border border-orange-100">
+                        {item.category}
+                      </span>
+                      <span className="text-sm font-semibold text-slate-400">
+                        {item.startDate}
+                      </span>
+                    </div>
 
-                  <h4 className="font-extrabold text-xl text-slate-800 mb-3 leading-snug group-hover:text-orange-500 transition-colors">
-                    {item.name}
-                  </h4>
+                    <h4 className="font-extrabold text-xl text-slate-800 mb-3 leading-snug group-hover:text-orange-500 transition-colors">
+                      {item.name}
+                    </h4>
 
-                  <div className="text-sm font-medium text-slate-500 space-y-2.5 mb-5">
-                    <p className="flex items-center gap-2">
-                      <span className="text-lg">📍</span> {item.location}
+                    <div className="text-sm font-medium text-slate-500 space-y-2.5 mb-5">
+                      <p className="flex items-center gap-2">
+                        <span className="text-lg">📍</span> {item.location}
+                      </p>
+                      <p className="flex items-center gap-2">
+                        <span className="text-lg">👥</span> {item.target}
+                      </p>
+                    </div>
+
+                    <p className="text-sm text-slate-500 bg-slate-50/50 p-4 rounded-2xl mb-6 leading-relaxed flex-grow border border-slate-100/50 line-clamp-3">
+                      {item.summary}
                     </p>
-                    <p className="flex items-center gap-2">
-                      <span className="text-lg">👥</span> {item.target}
+
+                    <div className="mt-auto flex items-center justify-center gap-2 w-full bg-white group-hover:bg-orange-500 text-slate-700 group-hover:text-white font-bold py-3.5 rounded-xl transition-all duration-300 text-sm shadow-sm border border-slate-200 group-hover:border-transparent">
+                      공식 공고 확인하기
+                      <svg className="w-4 h-4 opacity-50 group-hover:opacity-100 transition-opacity group-hover:translate-x-1 duration-200" fill="none" viewBox="0 0 24 24" stroke="currentColor"><path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M10 6H6a2 2 0 00-2 2v10a2 2 0 002 2h10a2 2 0 002-2v-4M14 4h6m0 0v6m0-6L10 14" /></svg>
+                    </div>
+                  </a>
+                ) : (
+                  <Link
+                    href="/blog"
+                    className="group block bg-white/70 backdrop-blur-md rounded-[24px] p-6 shadow-[0_8px_30px_rgb(0,0,0,0.04)] border border-white/60 hover:shadow-[0_20px_40px_rgb(0,0,0,0.08)] hover:-translate-y-1 transition-all duration-300 flex flex-col h-full cursor-pointer"
+                  >
+                    <div className="flex justify-between items-start mb-4">
+                      <span className="text-xs font-extrabold text-orange-500 bg-orange-50 px-3 py-1.5 rounded-lg border border-orange-100">
+                        {item.category}
+                      </span>
+                      <span className="text-sm font-semibold text-slate-400">
+                        {item.startDate}
+                      </span>
+                    </div>
+
+                    <h4 className="font-extrabold text-xl text-slate-800 mb-3 leading-snug group-hover:text-orange-500 transition-colors">
+                      {item.name}
+                    </h4>
+
+                    <div className="text-sm font-medium text-slate-500 space-y-2.5 mb-5">
+                      <p className="flex items-center gap-2">
+                        <span className="text-lg">📍</span> {item.location}
+                      </p>
+                      <p className="flex items-center gap-2">
+                        <span className="text-lg">👥</span> {item.target}
+                      </p>
+                    </div>
+
+                    <p className="text-sm text-slate-500 bg-slate-50/50 p-4 rounded-2xl mb-6 leading-relaxed flex-grow border border-slate-100/50 line-clamp-3">
+                      {item.summary}
                     </p>
-                  </div>
 
-                  <p className="text-sm text-slate-500 bg-slate-50/50 p-4 rounded-2xl mb-6 leading-relaxed flex-grow border border-slate-100/50 line-clamp-3">
-                    {item.summary}
-                  </p>
-
-                  <div className="mt-auto flex items-center justify-center gap-2 w-full bg-white group-hover:bg-orange-500 text-slate-700 group-hover:text-white font-bold py-3.5 rounded-xl transition-all duration-300 text-sm shadow-sm border border-slate-200 group-hover:border-transparent">
-                    상세 내용 보기
-                    <svg className="w-4 h-4 opacity-50 group-hover:opacity-100 transition-opacity group-hover:translate-x-1 duration-200" fill="none" viewBox="0 0 24 24" stroke="currentColor"><path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M14 5l7 7m0 0l-7 7m7-7H3" /></svg>
-                  </div>
-                </Link>
+                    <div className="mt-auto flex items-center justify-center gap-2 w-full bg-white group-hover:bg-orange-500 text-slate-700 group-hover:text-white font-bold py-3.5 rounded-xl transition-all duration-300 text-sm shadow-sm border border-slate-200 group-hover:border-transparent">
+                      블로그에서 내용 보기
+                      <svg className="w-4 h-4 opacity-50 group-hover:opacity-100 transition-opacity group-hover:translate-x-1 duration-200" fill="none" viewBox="0 0 24 24" stroke="currentColor"><path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M14 5l7 7m0 0l-7 7m7-7H3" /></svg>
+                    </div>
+                  </Link>
+                )}
               </div>
             ))}
           </div>
@@ -151,55 +191,109 @@ export default function Home() {
                     })
                   }}
                 />
-                <Link
-                  href="/blog"
-                  className="group block relative overflow-hidden bg-white/70 backdrop-blur-md p-8 rounded-[28px] shadow-[0_8px_30px_rgb(0,0,0,0.04)] border border-white/60 hover:shadow-[0_20px_40px_rgb(0,0,0,0.08)] hover:-translate-y-1 transition-all duration-300 flex flex-col h-full cursor-pointer"
-                >
-                  {/* 우측 상단의 은은한 빛(Glow) 효과 */}
-                  <div className="absolute top-0 right-0 -mt-8 -mr-8 w-32 h-32 bg-emerald-100 rounded-full blur-3xl opacity-50 pointer-events-none group-hover:scale-150 transition-transform duration-700" />
+                {item.link && item.link !== '#' ? (
+                  <a
+                    href={item.link}
+                    target="_blank"
+                    rel="noopener noreferrer"
+                    className="group block relative overflow-hidden bg-white/70 backdrop-blur-md p-8 rounded-[28px] shadow-[0_8px_30px_rgb(0,0,0,0.04)] border border-white/60 hover:shadow-[0_20px_40px_rgb(0,0,0,0.08)] hover:-translate-y-1 transition-all duration-300 flex flex-col h-full cursor-pointer"
+                  >
+                    {/* 우측 상단의 은은한 빛(Glow) 효과 */}
+                    <div className="absolute top-0 right-0 -mt-8 -mr-8 w-32 h-32 bg-emerald-100 rounded-full blur-3xl opacity-50 pointer-events-none group-hover:scale-150 transition-transform duration-700" />
 
-                  <div className="relative z-10 flex justify-between items-center mb-6">
-                    <span className="text-xs font-extrabold text-emerald-600 bg-emerald-50 px-3 py-1.5 rounded-lg border border-emerald-100">
-                      {item.category}
-                    </span>
-                    <span className="text-xs font-semibold text-slate-500 bg-white/80 px-3 py-1.5 rounded-lg border border-slate-200/60 shadow-sm">
-                      신청기한: {item.endDate}
-                    </span>
-                  </div>
+                    <div className="relative z-10 flex justify-between items-center mb-6">
+                      <span className="text-xs font-extrabold text-emerald-600 bg-emerald-50 px-3 py-1.5 rounded-lg border border-emerald-100">
+                        {item.category}
+                      </span>
+                      <span className="text-xs font-semibold text-slate-500 bg-white/80 px-3 py-1.5 rounded-lg border border-slate-200/60 shadow-sm">
+                        신청기한: {item.endDate}
+                      </span>
+                    </div>
 
-                  <h4 className="relative z-10 font-extrabold text-2xl text-slate-800 mb-4 leading-tight group-hover:text-emerald-500 transition-colors">
-                    {item.name}
-                  </h4>
+                    <h4 className="relative z-10 font-extrabold text-2xl text-slate-800 mb-4 leading-tight group-hover:text-emerald-500 transition-colors">
+                      {item.name}
+                    </h4>
 
-                  <p className="relative z-10 text-slate-500 font-medium mb-8 text-[15px] leading-relaxed flex-grow">
-                    {item.summary}
-                  </p>
+                    <p className="relative z-10 text-slate-500 font-medium mb-8 text-[15px] leading-relaxed flex-grow">
+                      {item.summary}
+                    </p>
 
-                  <div className="relative z-10 bg-slate-50/80 rounded-2xl p-5 mb-8 space-y-4 border border-slate-100/50">
-                    <div className="flex items-start gap-4">
-                      <div className="bg-white p-2 rounded-xl shadow-sm border border-slate-100 mt-0.5">
-                        <span className="text-lg leading-none block">🎯</span>
+                    <div className="relative z-10 bg-slate-50/80 rounded-2xl p-5 mb-8 space-y-4 border border-slate-100/50">
+                      <div className="flex items-start gap-4">
+                        <div className="bg-white p-2 rounded-xl shadow-sm border border-slate-100 mt-0.5">
+                          <span className="text-lg leading-none block">🎯</span>
+                        </div>
+                        <div>
+                          <p className="text-xs font-bold text-slate-400 mb-1">지원 대상</p>
+                          <p className="text-sm font-bold text-slate-700">{item.target}</p>
+                        </div>
                       </div>
-                      <div>
-                        <p className="text-xs font-bold text-slate-400 mb-1">지원 대상</p>
-                        <p className="text-sm font-bold text-slate-700">{item.target}</p>
+                      <div className="flex items-start gap-4 pt-4 border-t border-slate-200/60">
+                        <div className="bg-white p-2 rounded-xl shadow-sm border border-slate-100 mt-0.5">
+                          <span className="text-lg leading-none block">🏢</span>
+                        </div>
+                        <div>
+                          <p className="text-xs font-bold text-slate-400 mb-1">신청 방법</p>
+                          <p className="text-sm font-bold text-slate-700">{item.location}</p>
+                        </div>
                       </div>
                     </div>
-                    <div className="flex items-start gap-4 pt-4 border-t border-slate-200/60">
-                      <div className="bg-white p-2 rounded-xl shadow-sm border border-slate-100 mt-0.5">
-                        <span className="text-lg leading-none block">🏢</span>
+
+                    <div className="relative z-10 mt-auto block text-center w-full bg-slate-800 group-hover:bg-emerald-500 text-white font-bold py-4 rounded-xl transition-all duration-300 shadow-md group-hover:shadow-xl group-hover:-translate-y-0.5 text-[15px]">
+                      공식 사이트에서 신청하기
+                    </div>
+                  </a>
+                ) : (
+                  <Link
+                    href="/blog"
+                    className="group block relative overflow-hidden bg-white/70 backdrop-blur-md p-8 rounded-[28px] shadow-[0_8px_30px_rgb(0,0,0,0.04)] border border-white/60 hover:shadow-[0_20px_40px_rgb(0,0,0,0.08)] hover:-translate-y-1 transition-all duration-300 flex flex-col h-full cursor-pointer"
+                  >
+                    {/* 우측 상단의 은은한 빛(Glow) 효과 */}
+                    <div className="absolute top-0 right-0 -mt-8 -mr-8 w-32 h-32 bg-emerald-100 rounded-full blur-3xl opacity-50 pointer-events-none group-hover:scale-150 transition-transform duration-700" />
+
+                    <div className="relative z-10 flex justify-between items-center mb-6">
+                      <span className="text-xs font-extrabold text-emerald-600 bg-emerald-50 px-3 py-1.5 rounded-lg border border-emerald-100">
+                        {item.category}
+                      </span>
+                      <span className="text-xs font-semibold text-slate-500 bg-white/80 px-3 py-1.5 rounded-lg border border-slate-200/60 shadow-sm">
+                        신청기한: {item.endDate}
+                      </span>
+                    </div>
+
+                    <h4 className="relative z-10 font-extrabold text-2xl text-slate-800 mb-4 leading-tight group-hover:text-emerald-500 transition-colors">
+                      {item.name}
+                    </h4>
+
+                    <p className="relative z-10 text-slate-500 font-medium mb-8 text-[15px] leading-relaxed flex-grow">
+                      {item.summary}
+                    </p>
+
+                    <div className="relative z-10 bg-slate-50/80 rounded-2xl p-5 mb-8 space-y-4 border border-slate-100/50">
+                      <div className="flex items-start gap-4">
+                        <div className="bg-white p-2 rounded-xl shadow-sm border border-slate-100 mt-0.5">
+                          <span className="text-lg leading-none block">🎯</span>
+                        </div>
+                        <div>
+                          <p className="text-xs font-bold text-slate-400 mb-1">지원 대상</p>
+                          <p className="text-sm font-bold text-slate-700">{item.target}</p>
+                        </div>
                       </div>
-                      <div>
-                        <p className="text-xs font-bold text-slate-400 mb-1">신청 방법</p>
-                        <p className="text-sm font-bold text-slate-700">{item.location}</p>
+                      <div className="flex items-start gap-4 pt-4 border-t border-slate-200/60">
+                        <div className="bg-white p-2 rounded-xl shadow-sm border border-slate-100 mt-0.5">
+                          <span className="text-lg leading-none block">🏢</span>
+                        </div>
+                        <div>
+                          <p className="text-xs font-bold text-slate-400 mb-1">신청 방법</p>
+                          <p className="text-sm font-bold text-slate-700">{item.location}</p>
+                        </div>
                       </div>
                     </div>
-                  </div>
 
-                  <div className="relative z-10 mt-auto block text-center w-full bg-slate-800 group-hover:bg-emerald-500 text-white font-bold py-4 rounded-xl transition-all duration-300 shadow-md group-hover:shadow-xl group-hover:-translate-y-0.5 text-[15px]">
-                    상세 안내 및 알아보기
-                  </div>
-                </Link>
+                    <div className="relative z-10 mt-auto block text-center w-full bg-slate-800 group-hover:bg-emerald-500 text-white font-bold py-4 rounded-xl transition-all duration-300 shadow-md group-hover:shadow-xl group-hover:-translate-y-0.5 text-[15px]">
+                      블로그에서 내용 보기
+                    </div>
+                  </Link>
+                )}
               </div>
             ))}
           </div>
