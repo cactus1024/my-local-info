@@ -48,6 +48,65 @@ export default function Home() {
           </p>
         </section>
 
+        {/* 월별 축제 미니 카드 섹션 */}
+        <section className="space-y-8">
+          <div className="flex items-center justify-between border-b border-slate-200/60 pb-4">
+            <h3 className="text-2xl font-extrabold text-slate-800 tracking-tight flex items-center gap-2">
+              <span className="text-2xl">🌸</span> 4월 11일 주요 지역 축제
+            </h3>
+            <a 
+              href="https://korean.visitkorea.or.kr/kfes/list/festivalCalendar.do" 
+              target="_blank" 
+              rel="noopener noreferrer"
+              className="text-xs font-bold text-slate-400 hover:text-orange-500 transition-colors"
+            >
+              전체 달력 보기 →
+            </a>
+          </div>
+
+          <div className="grid grid-cols-1 sm:grid-cols-2 gap-4">
+            {/* 축제 카드 1 */}
+            <div className="group relative flex items-center gap-4 bg-white/50 backdrop-blur-sm p-3 rounded-2xl border border-white/60 hover:bg-white/80 transition-all shadow-sm hover:shadow-md">
+              <div className="relative w-24 h-24 shrink-0 overflow-hidden rounded-xl bg-slate-100">
+                <img 
+                  src="/images/incheon.png" 
+                  alt="자유공원 벚꽃축제"
+                  className="w-full h-full object-cover group-hover:scale-110 transition-transform duration-500"
+                />
+              </div>
+              <div className="flex flex-col gap-1 pr-2">
+                <span className="text-[10px] font-extrabold text-orange-500 uppercase tracking-wider">인천광역시 중구</span>
+                <h4 className="text-[15px] font-extrabold text-slate-800 leading-tight group-hover:text-orange-500 transition-colors">자유공원 벚꽃축제</h4>
+                <p className="text-xs font-bold text-slate-400 mt-1">
+                  📅 2026.04.11 ~ 04.11
+                </p>
+              </div>
+            </div>
+
+            {/* 축제 카드 2 */}
+            <div className="group relative flex items-center gap-4 bg-white/50 backdrop-blur-sm p-3 rounded-2xl border border-white/60 hover:bg-white/80 transition-all shadow-sm hover:shadow-md">
+              <div className="relative w-24 h-24 shrink-0 overflow-hidden rounded-xl bg-slate-100">
+                <img 
+                  src="/images/hanriver.png" 
+                  alt="책읽는 한강공원"
+                  className="w-full h-full object-cover group-hover:scale-110 transition-transform duration-500"
+                />
+              </div>
+              <div className="flex flex-col gap-1 pr-2">
+                <span className="text-[10px] font-extrabold text-blue-500 uppercase tracking-wider">서울 여의도</span>
+                <h4 className="text-[15px] font-extrabold text-slate-800 leading-tight group-hover:text-blue-500 transition-colors">책읽는 한강공원</h4>
+                <p className="text-xs font-bold text-slate-400 mt-1">
+                  📅 2026.04.11 ~ 05.23
+                </p>
+              </div>
+            </div>
+          </div>
+
+          <p className="text-[10px] font-bold text-slate-300 text-right">
+            출처: 대한민국 구석구석 (visitkorea.or.kr)
+          </p>
+        </section>
+
         {/* 행사/축제 섹션 */}
         <section>
           <div className="flex items-center justify-between mb-8">
