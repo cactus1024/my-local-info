@@ -11,17 +11,17 @@ export default function Home() {
 
       {/* 헤더 */}
       <header className="relative z-10 sticky top-0 backdrop-blur-xl bg-white/60 border-b border-white/40 shadow-[0_2px_10px_rgba(0,0,0,0.02)]">
-        <div className="max-w-5xl mx-auto px-6 py-4 flex items-center justify-between">
-          <h1 className="text-xl sm:text-2xl font-extrabold tracking-tight flex items-center gap-2">
-            <span className="bg-gradient-to-r from-orange-500 to-rose-500 bg-clip-text text-transparent">
+        <div className="max-w-5xl mx-auto px-4 sm:px-6 py-3 sm:py-4 flex items-center justify-between">
+          <h1 className="text-lg sm:text-2xl font-extrabold tracking-tight flex items-center gap-2 truncate pr-2">
+            <span className="bg-gradient-to-r from-orange-500 to-rose-500 bg-clip-text text-transparent truncate">
               성남시 생활정보
             </span>
           </h1>
-          <div className="flex gap-3">
-            <Link href="/blog" className="text-sm font-bold text-slate-600 hover:text-orange-500 transition-colors bg-white/80 px-4 py-2 rounded-full shadow-sm border border-slate-100 flex items-center gap-1">
+          <div className="flex gap-2 sm:gap-3 shrink-0">
+            <Link href="/blog" className="text-xs sm:text-sm font-bold text-slate-600 hover:text-orange-500 transition-colors bg-white/80 px-3 py-1.5 sm:px-4 sm:py-2 rounded-full shadow-sm border border-slate-100 flex items-center gap-1 shrink-0">
               📝 블로그
             </Link>
-            <button className="text-sm font-semibold text-slate-500 hover:text-slate-800 transition-colors bg-white/80 px-4 py-2 rounded-full shadow-sm border border-slate-100">
+            <button className="hidden sm:inline-flex text-sm font-semibold text-slate-500 hover:text-slate-800 transition-colors bg-white/80 px-4 py-2 rounded-full shadow-sm border border-slate-100 shrink-0">
               소식 받기
             </button>
           </div>
@@ -181,6 +181,12 @@ export default function Home() {
           </div>
         </div>
       </footer>
+      {/* 모바일 전용 우측 하단 플로팅 블로그 버튼 */}
+      <div className="sm:hidden fixed bottom-6 right-6 z-[999]">
+        <Link href="/blog" className="flex items-center justify-center w-16 h-16 bg-orange-500 text-white rounded-full shadow-[0_8px_30px_rgba(249,115,22,0.4)] hover:bg-orange-600 active:scale-90 transition-all border-4 border-white/80 backdrop-blur-sm">
+          <span className="text-2xl" aria-hidden="true">✏️</span>
+        </Link>
+      </div>
     </div>
   );
 }
