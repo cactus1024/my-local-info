@@ -17,14 +17,19 @@ export default function Home() {
               성남시 생활정보
             </span>
           </h1>
-          <button className="text-sm font-semibold text-slate-500 hover:text-slate-800 transition-colors bg-white/80 px-4 py-2 rounded-full shadow-sm border border-slate-100">
-            소식 받기
-          </button>
+          <div className="flex gap-3">
+            <Link href="/blog" className="text-sm font-bold text-slate-600 hover:text-orange-500 transition-colors bg-white/80 px-4 py-2 rounded-full shadow-sm border border-slate-100 flex items-center gap-1">
+              📝 블로그
+            </Link>
+            <button className="text-sm font-semibold text-slate-500 hover:text-slate-800 transition-colors bg-white/80 px-4 py-2 rounded-full shadow-sm border border-slate-100">
+              소식 받기
+            </button>
+          </div>
         </div>
       </header>
 
       <main className="relative z-10 max-w-5xl mx-auto w-full px-6 py-12 space-y-20">
-        
+
         {/* 인트로 메세지 */}
         <section className="text-center space-y-5 max-w-2xl mx-auto pt-4 pb-2">
           <h2 className="text-4xl md:text-5xl font-extrabold tracking-tight text-slate-900 leading-tight">
@@ -49,12 +54,12 @@ export default function Home() {
               {events.length}개의 일정
             </span>
           </div>
-          
+
           <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6">
             {events.map((item) => (
-              <Link 
-                href={`/details/${item.id}`}
-                key={item.id} 
+              <Link
+                href="/blog"
+                key={item.id}
                 className="group block bg-white/70 backdrop-blur-md rounded-[24px] p-6 shadow-[0_8px_30px_rgb(0,0,0,0.04)] border border-white/60 hover:shadow-[0_20px_40px_rgb(0,0,0,0.08)] hover:-translate-y-1 transition-all duration-300 flex flex-col h-full cursor-pointer"
               >
                 <div className="flex justify-between items-start mb-4">
@@ -65,11 +70,11 @@ export default function Home() {
                     {item.startDate}
                   </span>
                 </div>
-                
+
                 <h4 className="font-extrabold text-xl text-slate-800 mb-3 leading-snug group-hover:text-orange-500 transition-colors">
                   {item.name}
                 </h4>
-                
+
                 <div className="text-sm font-medium text-slate-500 space-y-2.5 mb-5">
                   <p className="flex items-center gap-2">
                     <span className="text-lg">📍</span> {item.location}
@@ -78,11 +83,11 @@ export default function Home() {
                     <span className="text-lg">👥</span> {item.target}
                   </p>
                 </div>
-                
+
                 <p className="text-sm text-slate-500 bg-slate-50/50 p-4 rounded-2xl mb-6 leading-relaxed flex-grow border border-slate-100/50 line-clamp-3">
                   {item.summary}
                 </p>
-                
+
                 <div className="mt-auto flex items-center justify-center gap-2 w-full bg-white group-hover:bg-orange-500 text-slate-700 group-hover:text-white font-bold py-3.5 rounded-xl transition-all duration-300 text-sm shadow-sm border border-slate-200 group-hover:border-transparent">
                   상세 내용 보기
                   <svg className="w-4 h-4 opacity-50 group-hover:opacity-100 transition-opacity group-hover:translate-x-1 duration-200" fill="none" viewBox="0 0 24 24" stroke="currentColor"><path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M14 5l7 7m0 0l-7 7m7-7H3" /></svg>
@@ -102,12 +107,12 @@ export default function Home() {
               {benefits.length}개의 혜택
             </span>
           </div>
-          
+
           <div className="grid grid-cols-1 md:grid-cols-2 gap-6">
             {benefits.map((item) => (
-              <Link 
-                href={`/details/${item.id}`}
-                key={item.id} 
+              <Link
+                href="/blog"
+                key={item.id}
                 className="group block relative overflow-hidden bg-white/70 backdrop-blur-md p-8 rounded-[28px] shadow-[0_8px_30px_rgb(0,0,0,0.04)] border border-white/60 hover:shadow-[0_20px_40px_rgb(0,0,0,0.08)] hover:-translate-y-1 transition-all duration-300 flex flex-col h-full cursor-pointer"
               >
                 {/* 우측 상단의 은은한 빛(Glow) 효과 */}
@@ -121,15 +126,15 @@ export default function Home() {
                     신청기한: {item.endDate}
                   </span>
                 </div>
-                
+
                 <h4 className="relative z-10 font-extrabold text-2xl text-slate-800 mb-4 leading-tight group-hover:text-emerald-500 transition-colors">
                   {item.name}
                 </h4>
-                
+
                 <p className="relative z-10 text-slate-500 font-medium mb-8 text-[15px] leading-relaxed flex-grow">
                   {item.summary}
                 </p>
-                
+
                 <div className="relative z-10 bg-slate-50/80 rounded-2xl p-5 mb-8 space-y-4 border border-slate-100/50">
                   <div className="flex items-start gap-4">
                     <div className="bg-white p-2 rounded-xl shadow-sm border border-slate-100 mt-0.5">
@@ -150,7 +155,7 @@ export default function Home() {
                     </div>
                   </div>
                 </div>
-                
+
                 <div className="relative z-10 mt-auto block text-center w-full bg-slate-800 group-hover:bg-emerald-500 text-white font-bold py-4 rounded-xl transition-all duration-300 shadow-md group-hover:shadow-xl group-hover:-translate-y-0.5 text-[15px]">
                   상세 안내 및 알아보기
                 </div>
