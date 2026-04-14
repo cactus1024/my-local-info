@@ -58,7 +58,7 @@
       "link": "#"
     },
     {
-      "id": null,
+      "id": "b3",
       "name": "유아학비 (누리과정) 지원",
       "category": "혜택",
       "startDate": "2023-10-27",
@@ -69,7 +69,7 @@
       "link": "https://www.gov.kr/portal/rcvfvrSvc/dtlEx/000000465790"
     },
     {
-      "id": null,
+      "id": "b4",
       "name": "근로·자녀장려금",
       "category": "혜택",
       "startDate": "2023-10-27",
@@ -80,7 +80,7 @@
       "link": "https://www.gov.kr/portal/rcvfvrSvc/dtlEx/105100000001"
     },
     {
-      "id": null,
+      "id": "b5",
       "name": "주택금융공사 월세자금보증",
       "category": "혜택",
       "startDate": "2024-05-16",
@@ -91,7 +91,7 @@
       "link": "https://www.gov.kr/portal/rcvfvrSvc/dtlEx/116010000001"
     },
     {
-      "id": null,
+      "id": "b6",
       "name": "친환경 에너지절감장비 보급",
       "category": "혜택",
       "startDate": "2023-10-27",
@@ -102,7 +102,7 @@
       "link": "https://www.gov.kr/portal/rcvfvrSvc/dtlEx/119200000001"
     },
     {
-      "id": null,
+      "id": "b7",
       "name": "해양사고 국선 심판변론인 선정 지원",
       "category": "혜택",
       "startDate": "2023-10-27",
@@ -111,6 +111,17 @@
       "target": "사회적 약자(연령, 장애, 빈곤, 교육정도 등)에 해당하는 해양사고관련자",
       "summary": "해양사고를 입은 사회적 약자에게 국선 심판변론인 선정 및 법률자문 지원",
       "link": "https://www.gov.kr/portal/rcvfvrSvc/dtlEx/119200000007"
+    },
+    {
+      "id": "b8",
+      "name": "한국형 상병수당 시범사업",
+      "category": "혜택",
+      "startDate": "2022-07-01",
+      "endDate": "상시",
+      "location": "보건복지부",
+      "target": "시범사업 지역 거주 또는 소재 사업장 근로 취업자 및 자영업자(만15~65세), 일부 소득기준 적용.",
+      "summary": "질병·부상으로 경제활동이 어려운 취업자에게 상병수당 일 47,560원 지급 (최대 150일).",
+      "link": "https://www.gov.kr/portal/rcvfvrSvc/dtlEx/135200005017"
     }
   ]
 }

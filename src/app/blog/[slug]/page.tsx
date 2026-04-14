@@ -57,11 +57,11 @@ export default async function BlogPostPage({ params }: Props) {
             "datePublished": post.date,
             "author": {
               "@type": "Organization",
-              "name": "성남시 생활 정보"
+              "name": "생활속 알짜 정보"
             },
             "publisher": {
               "@type": "Organization",
-              "name": "성남시 생활 정보"
+              "name": "생활속 알짜 정보"
             }
           })
         }}
@@ -96,7 +96,7 @@ export default async function BlogPostPage({ params }: Props) {
         }}
       />
       <div className="fixed inset-0 z-0 bg-[radial-gradient(ellipse_at_top,_var(--tw-gradient-stops))] from-orange-100/40 via-rose-50/40 to-slate-50/80 pointer-events-none" />
-      
+
       <header className="relative z-10 sticky top-0 backdrop-blur-xl bg-white/60 border-b border-white/40 shadow-[0_2px_10px_rgba(0,0,0,0.02)]">
         <div className="max-w-5xl mx-auto px-6 py-4 flex items-center justify-between">
           <Link href="/" className="text-xl sm:text-2xl font-extrabold tracking-tight flex items-center gap-2">
@@ -132,7 +132,7 @@ export default async function BlogPostPage({ params }: Props) {
             </h1>
             <p className="text-[17px] text-slate-500 font-medium leading-relaxed">{post.summary}</p>
           </div>
-          
+
           <div className="prose prose-slate prose-orange max-w-none prose-headings:font-extrabold prose-a:text-orange-500 font-medium leading-loose mb-12">
             <ReactMarkdown remarkPlugins={[remarkGfm]}>
               {post.content}
@@ -144,9 +144,9 @@ export default async function BlogPostPage({ params }: Props) {
               <p className="text-sm font-bold text-slate-400 flex items-center gap-2">
                 <span className="text-base">🔗</span> 원문 출처 및 상세 정보
               </p>
-              <a 
-                href={post.link} 
-                target="_blank" 
+              <a
+                href={post.link}
+                target="_blank"
                 rel="noopener noreferrer"
                 className="inline-flex items-center gap-2 bg-slate-800 hover:bg-black text-white px-6 py-3.5 rounded-2xl font-bold transition-all shadow-md hover:shadow-xl active:scale-95"
               >
@@ -162,7 +162,7 @@ export default async function BlogPostPage({ params }: Props) {
 
           <div className="mt-16 bg-slate-50/80 rounded-2xl p-6 border border-slate-100">
             <p className="text-xs sm:text-sm text-slate-400 leading-relaxed font-medium">
-              💡 **안내:** 이 글은 공공데이터포털(data.go.kr)의 공식 정보를 바탕으로 AI가 핵심 내용을 요약 및 재구성하여 작성하였습니다. 
+              💡 **안내:** 이 글은 공공데이터포털(data.go.kr)의 공식 정보를 바탕으로 AI가 핵심 내용을 요약 및 재구성하여 작성하였습니다.
               내용의 정확성을 기하고자 노력했으나, 변동 사항이 있을 수 있으므로 반드시 **원문 링크**를 통해 최종 확인을 부탁드립니다.
             </p>
           </div>
