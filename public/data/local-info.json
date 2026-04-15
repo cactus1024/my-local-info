@@ -122,6 +122,17 @@
       "target": "시범사업 지역 거주 또는 소재 사업장 근로 취업자 및 자영업자(만15~65세), 일부 소득기준 적용.",
       "summary": "질병·부상으로 경제활동이 어려운 취업자에게 상병수당 일 47,560원 지급 (최대 150일).",
       "link": "https://www.gov.kr/portal/rcvfvrSvc/dtlEx/135200005017"
+    },
+    {
+      "name": "장애 체육인 장학금 지원",
+      "category": "혜택",
+      "startDate": "상시",
+      "endDate": "상시",
+      "location": "문화체육관광부",
+      "target": "전국대회 입상 또는 우수선수로 선정된 장애 학생선수",
+      "summary": "우수한 꿈나무 장애 학생선수에게 연간 최대 200만원 장학금을 지원합니다.",
+      "link": "https://www.gov.kr/portal/rcvfvrSvc/dtlEx/137100000035",
+      "id": "b9"
     }
   ]
 }
