@@ -15,7 +15,7 @@ const geistMono = Geist_Mono({
   subsets: ["latin"],
 });
 
-const GA_ID = process.env.NEXT_PUBLIC_GA_ID;
+const GA_ID = process.env.NEXT_PUBLIC_GA_ID || "G-C63HYT60GB";
 
 export const metadata: Metadata = {
   title: "성남시 생활 정보 | 행사·혜택·지원금 안내",
