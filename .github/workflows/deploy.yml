@@ -5,7 +5,8 @@ on:
     branches:
       - main
   schedule:
-    - cron: '0 22 * * *' # 매일 한국시간 오전 7시 (UTC 22시)
+    - cron: '0 22 * * *' # 매일 한국시간 오전 7시 (장 시작 전 미 증시 브리핑)
+    - cron: '0 7 * * *'  # 매일 한국시간 오후 4시 (장 마감 후 국장 브리핑)
   workflow_dispatch: # 수동 실행 가능
 
 permissions:
@@ -31,10 +32,10 @@ jobs:
       - name: Run scripts (only for schedule/manual)
         if: github.event_name != 'push'
         env:
-          PUBLIC_DATA_API_KEY: ${{ secrets.PUBLIC_DATA_API_KEY }}
           GEMINI_API_KEY: ${{ secrets.GEMINI_API_KEY }}
+          # 안 쓰는 PUBLIC_DATA_API_KEY는 깔끔하게 제거했습니다.
         run: |
-          node scripts/fetch-public-data.js
+          node scripts/fetch-market-data.js
           node scripts/generate-blog-post.js
 
       - name: Commit and Push changes
@@ -43,12 +44,13 @@ jobs:
           git config --global user.name "github-actions[bot]"
           git config --global user.email "github-actions[bot]@users.noreply.github.com"
           git add .
-          git diff --staged --quiet || (git commit -m "자동 업데이트: 공공데이터 수집 및 블로그 글 생성" && git push)
+          git diff --staged --quiet || (git commit -m "자동 업데이트: 글로벌 매크로 및 증시 브리핑 생성" && git push)
 
       - name: Build project
         run: npm run build
 
       - name: Deploy to Cloudflare Pages
+        # 주의: 클라우드플레어 프로젝트 이름은 연결 유지를 위해 기존(my-local-info) 그대로 두었습니다.
         run: npx wrangler pages deploy out --project-name=my-local-info
         env:
           CLOUDFLARE_API_TOKEN: ${{ secrets.CLOUDFLARE_API_TOKEN }}
