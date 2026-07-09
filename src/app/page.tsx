@@ -1,386 +1,85 @@
 import Link from 'next/link';
 import AdBanner from '@/components/AdBanner';
-import localData from '../../public/data/local-info.json';
+// 💡 지워진 옛날 파일 대신, 우리가 새로 만든 금융 데이터 파일을 불러옵니다.
+import marketData from '../../public/data/market-data.json';
 
 export default function Home() {
-  const { events, benefits } = localData;
+  // 새 JSON 구조에 맞게 데이터를 구조 분해 할당합니다.
+  const { date, macro, korean_market_news, focus_sector, memo } = marketData;
 
   return (
-    <div className="min-h-screen bg-[#F8FAFC] text-slate-800 selection:bg-rose-200">
-      {/* 은은하게 깔리는 모던한 그라데이션 배경 */}
-      <div className="fixed inset-0 z-0 bg-[radial-gradient(ellipse_at_top,_var(--tw-gradient-stops))] from-orange-100/40 via-rose-50/40 to-slate-50/80 pointer-events-none" />
-
-      {/* 헤더 */}
-      <header className="relative z-10 sticky top-0 backdrop-blur-xl bg-white/60 border-b border-white/40 shadow-[0_2px_10px_rgba(0,0,0,0.02)]">
-        <div className="max-w-5xl mx-auto px-4 sm:px-6 py-3 sm:py-4 flex items-center justify-between">
-          <h1 className="text-lg sm:text-2xl font-extrabold tracking-tight flex items-center gap-2 truncate pr-2">
-            <span className="bg-gradient-to-r from-orange-500 to-rose-500 bg-clip-text text-transparent truncate">
-              성남시 생활정보
-            </span>
+    <main className="min-h-screen bg-gray-50 p-4 md:p-8">
+      <div className="max-w-4xl mx-auto space-y-8">
+        
+        <header className="text-center space-y-4 pt-8">
+          <h1 className="text-4xl font-extrabold text-gray-900 tracking-tight">
+            Runvestlab 트레이딩 OS
           </h1>
-          <div className="flex gap-2 sm:gap-3 shrink-0">
-            <Link href="/blog" className="text-xs sm:text-sm font-bold text-slate-600 hover:text-orange-500 transition-colors bg-white/80 px-3 py-1.5 sm:px-4 sm:py-2 rounded-full shadow-sm border border-slate-100 flex items-center gap-1 shrink-0">
-              📝 블로그
-            </Link>
-            <Link href="/about" className="text-xs sm:text-sm font-bold text-slate-600 hover:text-orange-500 transition-colors bg-white/80 px-3 py-1.5 sm:px-4 sm:py-2 rounded-full shadow-sm border border-slate-100 flex items-center gap-1 shrink-0">
-              소개
-            </Link>
-            <button className="hidden sm:inline-flex text-sm font-semibold text-slate-500 hover:text-slate-800 transition-colors bg-white/80 px-4 py-2 rounded-full shadow-sm border border-slate-100 shrink-0">
-              소식 받기
-            </button>
-          </div>
-        </div>
-      </header>
-
-      <main className="relative z-10 max-w-5xl mx-auto w-full px-6 py-12 space-y-20">
-
-        {/* 인트로 메세지 */}
-        <section className="text-center space-y-5 max-w-2xl mx-auto pt-4 pb-2">
-          <h2 className="text-4xl md:text-5xl font-extrabold tracking-tight text-slate-900 leading-tight">
-            우리 동네 소식, <br className="md:hidden" />
-            <span className="text-transparent bg-clip-text bg-gradient-to-r from-orange-500 to-rose-400">
-              한눈에 쏙
-            </span>
-          </h2>
-          <p className="text-lg text-slate-500 font-medium">
-            가족 나들이부터 꼭 챙겨야 할 혜택까지, <br className="hidden md:block" />
-            놓칠 수 없는 주요 정보를 가장 빠르게 정리해 드려요.
+          <p className="text-gray-500 font-medium">
+            {date} 기준 마켓 브리핑 및 실전 타점
           </p>
-        </section>
+        </header>
 
-        {/* 월별 축제 미니 카드 섹션 */}
-        <section className="space-y-8">
-          <div className="flex items-center justify-between border-b border-slate-200/60 pb-4">
-            <h3 className="text-2xl font-extrabold text-slate-800 tracking-tight flex items-center gap-2">
-              <span className="text-2xl">🌸</span> 4월 11일 주요 지역 축제
-            </h3>
-            <a 
-              href="https://korean.visitkorea.or.kr/kfes/list/festivalCalendar.do" 
-              target="_blank" 
-              rel="noopener noreferrer"
-              className="text-xs font-bold text-slate-400 hover:text-orange-500 transition-colors"
-            >
-              전체 달력 보기 →
-            </a>
-          </div>
-
-          <div className="grid grid-cols-1 sm:grid-cols-2 gap-4">
-            {/* 축제 카드 1 */}
-            <div className="group relative flex items-center gap-4 bg-white/50 backdrop-blur-sm p-3 rounded-2xl border border-white/60 hover:bg-white/80 transition-all shadow-sm hover:shadow-md">
-              <div className="relative w-24 h-24 shrink-0 overflow-hidden rounded-xl bg-slate-100">
-                <img 
-                  src="/images/incheon.png" 
-                  alt="자유공원 벚꽃축제"
-                  className="w-full h-full object-cover group-hover:scale-110 transition-transform duration-500"
-                />
-              </div>
-              <div className="flex flex-col gap-1 pr-2">
-                <span className="text-[10px] font-extrabold text-orange-500 uppercase tracking-wider">인천광역시 중구</span>
-                <h4 className="text-[15px] font-extrabold text-slate-800 leading-tight group-hover:text-orange-500 transition-colors">자유공원 벚꽃축제</h4>
-                <p className="text-xs font-bold text-slate-400 mt-1">
-                  📅 2026.04.11 ~ 04.11
-                </p>
-              </div>
-            </div>
-
-            {/* 축제 카드 2 */}
-            <div className="group relative flex items-center gap-4 bg-white/50 backdrop-blur-sm p-3 rounded-2xl border border-white/60 hover:bg-white/80 transition-all shadow-sm hover:shadow-md">
-              <div className="relative w-24 h-24 shrink-0 overflow-hidden rounded-xl bg-slate-100">
-                <img 
-                  src="/images/hanriver.png" 
-                  alt="책읽는 한강공원"
-                  className="w-full h-full object-cover group-hover:scale-110 transition-transform duration-500"
-                />
-              </div>
-              <div className="flex flex-col gap-1 pr-2">
-                <span className="text-[10px] font-extrabold text-blue-500 uppercase tracking-wider">서울 여의도</span>
-                <h4 className="text-[15px] font-extrabold text-slate-800 leading-tight group-hover:text-blue-500 transition-colors">책읽는 한강공원</h4>
-                <p className="text-xs font-bold text-slate-400 mt-1">
-                  📅 2026.04.11 ~ 05.23
-                </p>
-              </div>
-            </div>
-          </div>
-
-          <p className="text-[10px] font-bold text-slate-300 text-right">
-            출처: 대한민국 구석구석 (visitkorea.or.kr)
-          </p>
-        </section>
-
-        {/* 행사/축제 섹션 */}
-        <section>
-          <div className="flex items-center justify-between mb-8">
-            <h3 className="text-2xl font-extrabold text-slate-800 tracking-tight flex items-center gap-2">
-              <span className="text-2xl">🎪</span> 다가오는 행사 & 축제
-            </h3>
-            <span className="text-sm font-bold text-orange-600 bg-orange-50/80 px-3.5 py-1.5 rounded-full border border-orange-100 shadow-sm backdrop-blur-sm">
-              {events.length}개의 일정
-            </span>
-          </div>
-
-          <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6">
-            {events.map((item) => (
-              <div key={item.id}>
-                <script
-                  type="application/ld+json"
-                  dangerouslySetInnerHTML={{
-                    __html: JSON.stringify({
-                      "@context": "https://schema.org",
-                      "@type": "Event",
-                      "name": item.name,
-                      "startDate": item.startDate,
-                      "endDate": item.endDate,
-                      "location": {
-                        "@type": "Place",
-                        "name": item.location
-                      },
-                      "description": item.summary
-                    })
-                  }}
-                />
-                {item.link && item.link !== '#' ? (
-                  <a
-                    href={item.link}
-                    target="_blank"
-                    rel="noopener noreferrer"
-                    className="group block bg-white/70 backdrop-blur-md rounded-[24px] p-6 shadow-[0_8px_30px_rgb(0,0,0,0.04)] border border-white/60 hover:shadow-[0_20px_40px_rgb(0,0,0,0.08)] hover:-translate-y-1 transition-all duration-300 flex flex-col h-full cursor-pointer"
-                  >
-                    <div className="flex justify-between items-start mb-4">
-                      <span className="text-xs font-extrabold text-orange-500 bg-orange-50 px-3 py-1.5 rounded-lg border border-orange-100">
-                        {item.category}
-                      </span>
-                      <span className="text-sm font-semibold text-slate-400">
-                        {item.startDate}
-                      </span>
-                    </div>
-
-                    <h4 className="font-extrabold text-xl text-slate-800 mb-3 leading-snug group-hover:text-orange-500 transition-colors">
-                      {item.name}
-                    </h4>
-
-                    <div className="text-sm font-medium text-slate-500 space-y-2.5 mb-5">
-                      <p className="flex items-center gap-2">
-                        <span className="text-lg">📍</span> {item.location}
-                      </p>
-                      <p className="flex items-center gap-2">
-                        <span className="text-lg">👥</span> {item.target}
-                      </p>
-                    </div>
-
-                    <p className="text-sm text-slate-500 bg-slate-50/50 p-4 rounded-2xl mb-6 leading-relaxed flex-grow border border-slate-100/50 line-clamp-3">
-                      {item.summary}
-                    </p>
-
-                    <div className="mt-auto flex items-center justify-center gap-2 w-full bg-white group-hover:bg-orange-500 text-slate-700 group-hover:text-white font-bold py-3.5 rounded-xl transition-all duration-300 text-sm shadow-sm border border-slate-200 group-hover:border-transparent">
-                      공식 공고 확인하기
-                      <svg className="w-4 h-4 opacity-50 group-hover:opacity-100 transition-opacity group-hover:translate-x-1 duration-200" fill="none" viewBox="0 0 24 24" stroke="currentColor"><path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M10 6H6a2 2 0 00-2 2v10a2 2 0 002 2h10a2 2 0 002-2v-4M14 4h6m0 0v6m0-6L10 14" /></svg>
-                    </div>
-                  </a>
-                ) : (
-                  <Link
-                    href="/blog"
-                    className="group block bg-white/70 backdrop-blur-md rounded-[24px] p-6 shadow-[0_8px_30px_rgb(0,0,0,0.04)] border border-white/60 hover:shadow-[0_20px_40px_rgb(0,0,0,0.08)] hover:-translate-y-1 transition-all duration-300 flex flex-col h-full cursor-pointer"
-                  >
-                    <div className="flex justify-between items-start mb-4">
-                      <span className="text-xs font-extrabold text-orange-500 bg-orange-50 px-3 py-1.5 rounded-lg border border-orange-100">
-                        {item.category}
-                      </span>
-                      <span className="text-sm font-semibold text-slate-400">
-                        {item.startDate}
-                      </span>
-                    </div>
-
-                    <h4 className="font-extrabold text-xl text-slate-800 mb-3 leading-snug group-hover:text-orange-500 transition-colors">
-                      {item.name}
-                    </h4>
-
-                    <div className="text-sm font-medium text-slate-500 space-y-2.5 mb-5">
-                      <p className="flex items-center gap-2">
-                        <span className="text-lg">📍</span> {item.location}
-                      </p>
-                      <p className="flex items-center gap-2">
-                        <span className="text-lg">👥</span> {item.target}
-                      </p>
-                    </div>
-
-                    <p className="text-sm text-slate-500 bg-slate-50/50 p-4 rounded-2xl mb-6 leading-relaxed flex-grow border border-slate-100/50 line-clamp-3">
-                      {item.summary}
-                    </p>
-
-                    <div className="mt-auto flex items-center justify-center gap-2 w-full bg-white group-hover:bg-orange-500 text-slate-700 group-hover:text-white font-bold py-3.5 rounded-xl transition-all duration-300 text-sm shadow-sm border border-slate-200 group-hover:border-transparent">
-                      블로그에서 내용 보기
-                      <svg className="w-4 h-4 opacity-50 group-hover:opacity-100 transition-opacity group-hover:translate-x-1 duration-200" fill="none" viewBox="0 0 24 24" stroke="currentColor"><path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M14 5l7 7m0 0l-7 7m7-7H3" /></svg>
-                    </div>
-                  </Link>
-                )}
-              </div>
-            ))}
-          </div>
-        </section>
-
-        {/* 광고 영역 */}
+        {/* 구글 애드센스 등 광고 배너 컴포넌트 유지 */}
         <AdBanner />
 
-        {/* 지원금/혜택 섹션 */}
-        <section>
-          <div className="flex items-center justify-between mb-8 border-t border-slate-200/60 pt-16">
-            <h3 className="text-2xl font-extrabold text-slate-800 tracking-tight flex items-center gap-2">
-              <span className="text-2xl">🎁</span> 알아두면 든든한 혜택
-            </h3>
-            <span className="text-sm font-bold text-emerald-600 bg-emerald-50/80 px-3.5 py-1.5 rounded-full border border-emerald-100 shadow-sm backdrop-blur-sm">
-              {benefits.length}개의 혜택
-            </span>
-          </div>
+        <div className="grid md:grid-cols-2 gap-6">
+          {/* 섹션 1: 글로벌 매크로 */}
+          <section className="bg-white p-6 rounded-2xl shadow-sm border border-gray-100">
+            <h2 className="text-2xl font-bold mb-5 text-blue-600">🌎 글로벌 매크로</h2>
+            <ul className="space-y-4 text-gray-700">
+              <li className="flex justify-between border-b pb-2">
+                <span className="font-semibold text-gray-500">원/달러 환율</span> 
+                <span className="font-bold text-gray-900">{macro.원달러_환율}</span>
+              </li>
+              <li className="flex justify-between border-b pb-2">
+                <span className="font-semibold text-gray-500">나스닥 지수</span> 
+                <span className="font-bold text-gray-900">{macro.나스닥_지수}</span>
+              </li>
+              <li className="pt-2">
+                <span className="block font-semibold text-gray-500 mb-1">핵심 이슈</span> 
+                <span className="text-sm bg-blue-50 text-blue-800 px-3 py-2 rounded-lg block">
+                  {macro.핵심_매크로_이슈}
+                </span>
+              </li>
+            </ul>
+          </section>
 
-          <div className="grid grid-cols-1 md:grid-cols-2 gap-6">
-            {benefits.map((item) => (
-              <div key={item.id} className="h-full">
-                <script
-                  type="application/ld+json"
-                  dangerouslySetInnerHTML={{
-                    __html: JSON.stringify({
-                      "@context": "https://schema.org",
-                      "@type": "GovernmentService",
-                      "name": item.name,
-                      "description": item.summary,
-                      "provider": {
-                        "@type": "GovernmentOrganization",
-                        "name": item.location || "성남시"
-                      }
-                    })
-                  }}
-                />
-                {item.link && item.link !== '#' ? (
-                  <a
-                    href={item.link}
-                    target="_blank"
-                    rel="noopener noreferrer"
-                    className="group block relative overflow-hidden bg-white/70 backdrop-blur-md p-8 rounded-[28px] shadow-[0_8px_30px_rgb(0,0,0,0.04)] border border-white/60 hover:shadow-[0_20px_40px_rgb(0,0,0,0.08)] hover:-translate-y-1 transition-all duration-300 flex flex-col h-full cursor-pointer"
-                  >
-                    {/* 우측 상단의 은은한 빛(Glow) 효과 */}
-                    <div className="absolute top-0 right-0 -mt-8 -mr-8 w-32 h-32 bg-emerald-100 rounded-full blur-3xl opacity-50 pointer-events-none group-hover:scale-150 transition-transform duration-700" />
-
-                    <div className="relative z-10 flex justify-between items-center mb-6">
-                      <span className="text-xs font-extrabold text-emerald-600 bg-emerald-50 px-3 py-1.5 rounded-lg border border-emerald-100">
-                        {item.category}
-                      </span>
-                      <span className="text-xs font-semibold text-slate-500 bg-white/80 px-3 py-1.5 rounded-lg border border-slate-200/60 shadow-sm">
-                        신청기한: {item.endDate}
-                      </span>
-                    </div>
-
-                    <h4 className="relative z-10 font-extrabold text-2xl text-slate-800 mb-4 leading-tight group-hover:text-emerald-500 transition-colors">
-                      {item.name}
-                    </h4>
-
-                    <p className="relative z-10 text-slate-500 font-medium mb-8 text-[15px] leading-relaxed flex-grow">
-                      {item.summary}
-                    </p>
-
-                    <div className="relative z-10 bg-slate-50/80 rounded-2xl p-5 mb-8 space-y-4 border border-slate-100/50">
-                      <div className="flex items-start gap-4">
-                        <div className="bg-white p-2 rounded-xl shadow-sm border border-slate-100 mt-0.5">
-                          <span className="text-lg leading-none block">🎯</span>
-                        </div>
-                        <div>
-                          <p className="text-xs font-bold text-slate-400 mb-1">지원 대상</p>
-                          <p className="text-sm font-bold text-slate-700">{item.target}</p>
-                        </div>
-                      </div>
-                      <div className="flex items-start gap-4 pt-4 border-t border-slate-200/60">
-                        <div className="bg-white p-2 rounded-xl shadow-sm border border-slate-100 mt-0.5">
-                          <span className="text-lg leading-none block">🏢</span>
-                        </div>
-                        <div>
-                          <p className="text-xs font-bold text-slate-400 mb-1">신청 방법</p>
-                          <p className="text-sm font-bold text-slate-700">{item.location}</p>
-                        </div>
-                      </div>
-                    </div>
-
-                    <div className="relative z-10 mt-auto block text-center w-full bg-slate-800 group-hover:bg-emerald-500 text-white font-bold py-4 rounded-xl transition-all duration-300 shadow-md group-hover:shadow-xl group-hover:-translate-y-0.5 text-[15px]">
-                      공식 사이트에서 신청하기
-                    </div>
-                  </a>
-                ) : (
-                  <Link
-                    href="/blog"
-                    className="group block relative overflow-hidden bg-white/70 backdrop-blur-md p-8 rounded-[28px] shadow-[0_8px_30px_rgb(0,0,0,0.04)] border border-white/60 hover:shadow-[0_20px_40px_rgb(0,0,0,0.08)] hover:-translate-y-1 transition-all duration-300 flex flex-col h-full cursor-pointer"
-                  >
-                    {/* 우측 상단의 은은한 빛(Glow) 효과 */}
-                    <div className="absolute top-0 right-0 -mt-8 -mr-8 w-32 h-32 bg-emerald-100 rounded-full blur-3xl opacity-50 pointer-events-none group-hover:scale-150 transition-transform duration-700" />
-
-                    <div className="relative z-10 flex justify-between items-center mb-6">
-                      <span className="text-xs font-extrabold text-emerald-600 bg-emerald-50 px-3 py-1.5 rounded-lg border border-emerald-100">
-                        {item.category}
-                      </span>
-                      <span className="text-xs font-semibold text-slate-500 bg-white/80 px-3 py-1.5 rounded-lg border border-slate-200/60 shadow-sm">
-                        신청기한: {item.endDate}
-                      </span>
-                    </div>
-
-                    <h4 className="relative z-10 font-extrabold text-2xl text-slate-800 mb-4 leading-tight group-hover:text-emerald-500 transition-colors">
-                      {item.name}
-                    </h4>
-
-                    <p className="relative z-10 text-slate-500 font-medium mb-8 text-[15px] leading-relaxed flex-grow">
-                      {item.summary}
-                    </p>
-
-                    <div className="relative z-10 bg-slate-50/80 rounded-2xl p-5 mb-8 space-y-4 border border-slate-100/50">
-                      <div className="flex items-start gap-4">
-                        <div className="bg-white p-2 rounded-xl shadow-sm border border-slate-100 mt-0.5">
-                          <span className="text-lg leading-none block">🎯</span>
-                        </div>
-                        <div>
-                          <p className="text-xs font-bold text-slate-400 mb-1">지원 대상</p>
-                          <p className="text-sm font-bold text-slate-700">{item.target}</p>
-                        </div>
-                      </div>
-                      <div className="flex items-start gap-4 pt-4 border-t border-slate-200/60">
-                        <div className="bg-white p-2 rounded-xl shadow-sm border border-slate-100 mt-0.5">
-                          <span className="text-lg leading-none block">🏢</span>
-                        </div>
-                        <div>
-                          <p className="text-xs font-bold text-slate-400 mb-1">신청 방법</p>
-                          <p className="text-sm font-bold text-slate-700">{item.location}</p>
-                        </div>
-                      </div>
-                    </div>
-
-                    <div className="relative z-10 mt-auto block text-center w-full bg-slate-800 group-hover:bg-emerald-500 text-white font-bold py-4 rounded-xl transition-all duration-300 shadow-md group-hover:shadow-xl group-hover:-translate-y-0.5 text-[15px]">
-                      블로그에서 내용 보기
-                    </div>
-                  </Link>
-                )}
-              </div>
-            ))}
-          </div>
-        </section>
-      </main>
-
-      {/* 푸터 */}
-      <footer className="relative z-10 bg-white/40 border-t border-slate-200/60 py-12 mt-16 backdrop-blur-md">
-        <div className="max-w-5xl mx-auto px-6 flex flex-col md:flex-row items-center justify-between gap-6">
-          <div className="flex items-center gap-3">
-            <span className="text-2xl bg-white p-2 rounded-xl shadow-sm border border-slate-100">📊</span>
-            <div>
-              <p className="font-extrabold text-slate-700 text-sm">데이터 출처: 공공데이터포털</p>
-              <p className="text-xs text-slate-500 font-medium mt-0.5">현재 화면은 샘플 안내용 자료입니다.</p>
+          {/* 섹션 2: 국내 증시 포커스 */}
+          <section className="bg-white p-6 rounded-2xl shadow-sm border border-gray-100">
+            <h2 className="text-2xl font-bold mb-5 text-red-600">🇰🇷 국장 수급 포커스</h2>
+            
+            <div className="mb-6">
+              <span className="block font-semibold text-gray-500 mb-2">오늘의 특징 테마</span>
+              <p className="font-bold text-gray-900 text-lg">{focus_sector}</p>
             </div>
-          </div>
-          <div className="text-center md:text-right">
-            <p className="text-sm font-bold text-slate-400">마지막 업데이트: 2026.04.10</p>
-            <p className="text-xs text-slate-400 font-medium mt-1">© 2026 성남시 생활 정보. All rights reserved.</p>
-          </div>
+
+            <div className="mb-4">
+              <span className="block font-semibold text-gray-500 mb-2">실시간 핵심 뉴스</span>
+              <ul className="list-disc pl-5 space-y-2 text-sm text-gray-600">
+                {korean_market_news.map((news: string, idx: number) => (
+                  <li key={idx}>{news}</li>
+                ))}
+              </ul>
+            </div>
+            
+            <div className="mt-4 pt-4 border-t border-gray-100">
+              <span className="block font-semibold text-gray-500 mb-1">트레이더 메모</span>
+              <p className="text-sm font-medium text-red-500">{memo}</p>
+            </div>
+          </section>
         </div>
-      </footer>
-      {/* 모바일 전용 우측 하단 플로팅 블로그 버튼 */}
-      <div className="sm:hidden fixed bottom-6 right-6 z-[999]">
-        <Link href="/blog" className="flex items-center justify-center w-16 h-16 bg-orange-500 text-white rounded-full shadow-[0_8px_30px_rgba(249,115,22,0.4)] hover:bg-orange-600 active:scale-90 transition-all border-4 border-white/80 backdrop-blur-sm">
-          <span className="text-2xl" aria-hidden="true">✏️</span>
-        </Link>
+
+        <div className="text-center pt-10 pb-20">
+          <Link 
+            href="/blog" 
+            className="inline-block bg-gray-900 text-white px-8 py-4 rounded-xl font-bold text-lg shadow-lg hover:bg-gray-800 transition-all hover:-translate-y-1"
+          >
+            🎯 AI 퀀트 전략 브리핑 전체 보기
+          </Link>
+        </div>
+
       </div>
-    </div>
+    </main>
   );
 }
