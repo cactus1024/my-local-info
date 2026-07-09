@@ -1,36 +1,34 @@
-# 프로젝트: 우리 동네 생활 정보 웹사이트
+# 프로젝트: Runvestlab (런베스트랩) - 실전 트레이딩 & 연금 전략 OS
 
-## 목표
-공공데이터포털(data.go.kr)에서 지역 행사/축제/지원금 정보를 자동 수집하고,
-AI가 매일 블로그 글을 자동 작성하며,
-Google AdSense + 쿠팡 파트너스로 수익화하는 웹사이트
+## 🎯 목표
+불확실한 시장에서 개인 투자자(개미)들이 뇌동매매를 멈추고 시스템적인 투자를 할 수 있도록 돕는 '자동화 트레이딩 OS' 구축. 
+글로벌 매크로 데이터와 국장 특징주 데이터를 자동 수집하고, AI가 퀀트 및 기술적 분석(FVG, 킬존 타점 등) 기반의 전략 브리핑을 매일 발행하여 압도적인 트래픽과 체류 시간을 확보. 궁극적으로 금융권 수준의 고단가 광고 수익과 제휴 마케팅 패시브 인컴을 창출한다.
 
-## 기술 스택
-- Next.js (App Router) + TypeScript + Tailwind CSS
-- Gemini API (AI 글 자동 생성)
-- 공공데이터포털 API (지역 정보 수집)
-- GitHub Actions (매일 자동 실행)
-- Cloudflare Pages (무료 호스팅)
+## ⚙️ 기술 스택
+- **Frontend:** Next.js (App Router) + TypeScript + Tailwind CSS (트레이딩뷰 차트 라이브러리 연동 고려)
+- **AI Core:** Gemini 1.5 Pro / 3.5 Flash API (슈퍼 메가 프롬프트를 통한 팩트 기반 환각 통제)
+- **Data Pipeline:** Yahoo Finance API, 증권사/포털 금융 데이터 크롤링 (Axios + Cheerio)
+- **Automation:** GitHub Actions (장 시작 전, 장 마감 후 일 2회 자동 빌드)
+- **Hosting:** Cloudflare Pages (글로벌 엣지 네트워크를 통한 무중단 무료 호스팅)
 
-## 페이지 구성
-1. 메인 페이지: 이번 달 행사/축제 + 지원금/혜택 카드 목록
-2. 상세 페이지: 각 행사/혜택 클릭 시 상세 정보
-3. 블로그 목록: AI가 자동 생성한 글 목록
-4. 블로그 상세: 개별 블로그 글 읽기
+## 📊 페이지 구성
+1. **마켓 대시보드 (메인):** 글로벌 지수(나스닥, 환율, VIX) 실시간 전광판 및 당일 거래대금 최상위 주도주 목록.
+2. **트레이딩 시나리오 (상세):** 차트 지지/저항선, 페어 밸류 갭(FVG) 구간, 시초가 갭 대응 및 종가 베팅 전략 제시.
+3. **인사이트 블로그:** AI가 분석한 오늘의 증시 브리핑 및 퇴직연금(IRP/DC) / ETF 포트폴리오 리밸런싱 칼럼.
 
-## 수익화
-- Google AdSense: 메인 페이지, 블로그 글 페이지에 광고 배치
-- 쿠팡 파트너스: 블로그 글 하단에 배너
+## 💰 수익화 모델 (Upgrade)
+- **Google AdSense:** 고단가 키워드(증권, 연금, 대출, 보험) 타겟팅으로 블로그 글 상/하단 및 대시보드 사이드바 광고 배치.
+- **제휴 마케팅 (Coupang & Finance):** 블로그 글 하단에 투자/경제 베스트셀러 도서 쿠팡 파트너스 배너 삽입.
+- **디지털 프로덕트 연동:** 트레이더들을 위한 맞춤형 '트레이딩 OS / 매매일지 노션(Notion) 템플릿'을 자체 제작하여 링크를 통한 판매 수익 창출.
 
-## 자동화 (GitHub Actions)
-매일 아침 7시(한국시간) 자동 실행:
-1. 공공데이터 API에서 최신 정보 수집
-2. Gemini AI로 블로그 글 자동 작성
-3. Git 커밋 & 푸시
-4. Cloudflare Pages 자동 배포
+## 🤖 자동화 파이프라인 (GitHub Actions)
+트레이딩 핵심 시간대에 맞춰 하루 2번(장 시작 전, 장 마감 후) 자동화 스케줄링 가동:
+1. **데이터 수집:** `fetch-market-data.js` 실행으로 간밤의 미 증시 데이터 및 국장 종가 데이터 확보.
+2. **AI 전략 생성:** `generate-blog-post.js` 실행으로 매수/매도 타점 및 연금 인사이트 마크다운(.md) 파일 생성.
+3. **저장 및 배포:** Git 자동 커밋 & 푸시 후 Cloudflare Pages 자동 빌드 트리거.
 
-## 환경변수 (나중에 .env.local에 저장)
-- GEMINI_API_KEY
-- PUBLIC_DATA_API_KEY
-- NEXT_PUBLIC_ADSENSE_ID
-- NEXT_PUBLIC_GA_ID
+## 🔐 환경변수 (.env.local)
+- `GEMINI_API_KEY`: AI 분석 코어 키
+- `MARKET_DATA_API_KEY`: 유료/공공 금융 API 사용 시 확장을 위한 키
+- `NEXT_PUBLIC_ADSENSE_ID`: 구글 애드센스 퍼블리셔 ID
+- `NEXT_PUBLIC_GA_ID`: 구글 애널리틱스 트래픽 추적 ID
