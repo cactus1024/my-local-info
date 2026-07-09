@@ -17,12 +17,13 @@ const geistMono = Geist_Mono({
 
 const GA_ID = process.env.NEXT_PUBLIC_GA_ID || "G-C63HYT60GB";
 
+// 💡 중복 선언 오류를 해결하고 깔끔하게 메타데이터를 정돈했습니다.
 export const metadata: Metadata = {
-  title: "성남시 생활 정보 | 행사·혜택·지원금 안내",
-  description: "성남시 주민을 위한 지역 행사, 축제, 지원금, 혜택 정보를 매일 업데이트합니다.",
+  title: 'Runvestlab | 퀀트 트레이딩 & 연금 전략 OS',
+  description: '직장인을 위한 실전 주식 타점과 글로벌 매크로 분석 브리핑',
   openGraph: {
-    title: "성남시 생활 정보 | 행사·혜택·지원금 안내",
-    description: "성남시 주민을 위한 지역 행사, 축제, 지원금, 혜택 정보를 매일 업데이트합니다.",
+    title: 'Runvestlab | 퀀트 트레이딩 & 연금 전략 OS',
+    description: '직장인을 위한 실전 주식 타점과 글로벌 매크로 분석 브리핑',
     type: "website",
     locale: "ko_KR",
   },
@@ -66,15 +67,16 @@ export default function RootLayout({
         <link rel="stylesheet" href="https://cdn.jsdelivr.net/gh/orioncactus/pretendard@v1.3.9/dist/web/static/pretendard.min.css" />
       </head>
       <body className="min-h-full flex flex-col">
+        {/* 💡 SEO 최적화를 위해 주소를 공식 도메인(runvestlab.com)으로 전면 교체했습니다. */}
         <script
           type="application/ld+json"
           dangerouslySetInnerHTML={{
             __html: JSON.stringify({
               "@context": "https://schema.org",
               "@type": "WebSite",
-              "name": "성남시 생활 정보",
-              "url": "https://my-local-info-9r3.pages.dev",
-              "description": "성남시 주민을 위한 지역 행사, 축제, 지원금, 혜택 정보"
+              "name": "Runvestlab",
+              "url": "https://runvestlab.com",
+              "description": "직장인을 위한 실전 주식 타점과 글로벌 매크로 분석 브리핑"
             })
           }}
         />
@@ -89,13 +91,13 @@ export default function RootLayout({
                   "@type": "ListItem",
                   "position": 1,
                   "name": "홈",
-                  "item": "https://my-local-info-9r3.pages.dev"
+                  "item": "https://runvestlab.com"
                 },
                 {
                   "@type": "ListItem",
                   "position": 2,
                   "name": "블로그",
-                  "item": "https://my-local-info-9r3.pages.dev/blog"
+                  "item": "https://runvestlab.com/blog"
                 }
               ]
             })
